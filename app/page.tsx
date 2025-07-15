@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -30,14 +32,14 @@ export default function AcademicProPortfolio() {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Code className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-900">AcademicPro Solutions</span>
-              <Badge className="bg-blue-100 text-blue-800 text-xs">CS/SE Specialists</Badge>
+              <Code className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />
+              <span className="text-lg sm:text-2xl font-bold text-gray-900">AcademicPro Solutions</span>
+              <Badge className="hidden sm:inline-flex bg-blue-100 text-blue-800 text-xs">CS/SE Specialists</Badge>
             </div>
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-8">
               <Link href="#services" className="text-gray-600 hover:text-blue-600 transition-colors">
                 Services
               </Link>
@@ -54,95 +56,104 @@ export default function AcademicProPortfolio() {
                 Contact
               </Link>
             </nav>
-            <Button className="bg-blue-600 hover:bg-blue-700">Get Started</Button>
+            <div className="flex items-center space-x-4">
+              <Button className="hidden sm:inline-flex bg-blue-600 hover:bg-blue-700">Get Started</Button>
+              <button className="lg:hidden p-2">
+                <div className="w-6 h-6 flex flex-col justify-center items-center">
+                  <span className="block w-5 h-0.5 bg-gray-600 mb-1"></span>
+                  <span className="block w-5 h-0.5 bg-gray-600 mb-1"></span>
+                  <span className="block w-5 h-0.5 bg-gray-600"></span>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-indigo-100">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+      <section className="pt-20 sm:pt-24 pb-12 sm:pb-16 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
               <div className="space-y-4">
-                <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100">
+                <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100 text-xs sm:text-sm">
                   Trusted by 8,000+ CS/SE Students Worldwide
                 </Badge>
-                <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
                   Master Your <span className="text-blue-600">Code</span> &{" "}
                   <span className="text-blue-600">Writing</span>, Ace Your Grades
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                   Complete academic support for Computer Science and Software Engineering students. From complex
                   algorithms to technical reports, we deliver high-quality code solutions and professional academic
                   writing.
                 </p>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-3">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-base sm:text-lg px-6 sm:px-8 py-3">
                   Start Your Project
                 </Button>
-                <Button size="lg" variant="outline" className="text-lg px-8 py-3 bg-transparent">
+                <Button size="lg" variant="outline" className="text-base sm:text-lg px-6 sm:px-8 py-3 bg-transparent">
                   View Sample Code
                 </Button>
               </div>
-              <div className="flex items-center space-x-8 text-sm text-gray-600">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span>Clean, Commented Code</span>
+              <div className="grid grid-cols-2 lg:flex lg:items-center lg:space-x-8 gap-4 lg:gap-0 text-sm text-gray-600">
+                <div className="flex items-center space-x-2 justify-center lg:justify-start">
+                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm">Clean Code</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span>24/7 Debug Support</span>
+                <div className="flex items-center space-x-2 justify-center lg:justify-start">
+                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm">24/7 Support</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span>GitHub Integration</span>
+                <div className="flex items-center space-x-2 justify-center lg:justify-start">
+                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm">GitHub Integration</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-500" />
-                  <span>Technical Writing</span>
+                <div className="flex items-center space-x-2 justify-center lg:justify-start">
+                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm">Technical Writing</span>
                 </div>
               </div>
             </div>
-            <div className="relative">
-              <div className="bg-gray-900 rounded-2xl shadow-2xl p-6 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+            <div className="relative order-first lg:order-last">
+              <div className="bg-gray-900 rounded-2xl shadow-2xl p-4 sm:p-6 transform hover:rotate-0 transition-transform duration-300 rotate-1 lg:rotate-3">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
+                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
+                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
                     </div>
-                    <span className="text-gray-400 text-sm">main.py</span>
+                    <span className="text-gray-400 text-xs sm:text-sm">main.py</span>
                   </div>
-                  <div className="text-green-400 font-mono text-sm space-y-1">
+                  <div className="text-green-400 font-mono text-xs sm:text-sm space-y-1">
                     <div className="text-purple-400"># Binary Search Tree Implementation</div>
                     <div>
                       <span className="text-blue-400">class</span>{" "}
                       <span className="text-yellow-400">BinarySearchTree</span>:
                     </div>
-                    <div className="ml-4">
+                    <div className="ml-2 sm:ml-4">
                       <span className="text-blue-400">def</span> <span className="text-yellow-400">__init__</span>
                       (self):
                     </div>
-                    <div className="ml-8">
+                    <div className="ml-4 sm:ml-8">
                       self.root = <span className="text-orange-400">None</span>
                     </div>
-                    <div className="ml-4">
+                    <div className="ml-2 sm:ml-4">
                       <span className="text-blue-400">def</span> <span className="text-yellow-400">insert</span>(self,
                       value):
                     </div>
-                    <div className="ml-8">
+                    <div className="ml-4 sm:ml-8">
                       <span className="text-purple-400"># Optimized insertion logic</span>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3 pt-4 border-t border-gray-700">
-                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center">
                       <span className="text-blue-600 font-semibold text-xs">AK</span>
                     </div>
                     <div>
-                      <p className="text-white text-sm font-medium">Data Structures Assignment</p>
+                      <p className="text-white text-xs sm:text-sm font-medium">Data Structures Assignment</p>
                       <p className="text-gray-400 text-xs">Grade: A+ (98/100)</p>
                     </div>
                   </div>
@@ -154,8 +165,8 @@ export default function AcademicProPortfolio() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section id="services" className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Comprehensive Academic Support Services</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -164,7 +175,7 @@ export default function AcademicProPortfolio() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
               <CardHeader className="text-center pb-4">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors">
@@ -429,8 +440,8 @@ export default function AcademicProPortfolio() {
       </section>
 
       {/* Sample Work Section */}
-      <section id="samples" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section id="samples" className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Sample Work Portfolio</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -439,7 +450,7 @@ export default function AcademicProPortfolio() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8">
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg bg-white">
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between mb-3">
@@ -836,8 +847,8 @@ export default function AcademicProPortfolio() {
       </section>
 
       {/* Global Reach Section */}
-      <section id="global" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section id="global" className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Global CS/SE Support</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -846,9 +857,9 @@ export default function AcademicProPortfolio() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
-              <div className="grid grid-cols-2 gap-6">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="space-y-6 sm:space-y-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="text-center p-6 bg-gray-50 rounded-xl">
                   <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Globe className="h-6 w-6 text-blue-600" />
@@ -929,8 +940,8 @@ export default function AcademicProPortfolio() {
       </section>
 
       {/* Packages Section */}
-      <section id="packages" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section id="packages" className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">CS/SE Specialized Packages</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -939,7 +950,7 @@ export default function AcademicProPortfolio() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             <Card className="border-2 border-gray-200 hover:border-blue-300 transition-colors bg-white">
               <CardHeader className="text-center pb-4">
                 <CardTitle className="text-2xl mb-2">Single Assignment</CardTitle>
@@ -1063,8 +1074,8 @@ export default function AcademicProPortfolio() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section id="testimonials" className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">CS/SE Student Success Stories</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -1073,7 +1084,7 @@ export default function AcademicProPortfolio() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <Card className="bg-gray-50 border-0 shadow-lg">
               <CardContent className="p-8">
                 <div className="flex text-yellow-400 mb-4">
@@ -1194,8 +1205,8 @@ export default function AcademicProPortfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Start Your CS/SE Project Today</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -1204,7 +1215,7 @@ export default function AcademicProPortfolio() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
             <Card className="bg-white border-0 shadow-xl">
               <CardHeader>
                 <CardTitle className="text-2xl">Get Your Code Solution</CardTitle>
@@ -1213,14 +1224,14 @@ export default function AcademicProPortfolio() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-gray-700">First Name</label>
-                    <Input placeholder="Enter your first name" />
+                    <Input placeholder="Enter your first name" className="w-full" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-sm font-medium text-gray-700">Last Name</label>
-                    <Input placeholder="Enter your last name" />
+                    <Input placeholder="Enter your last name" className="w-full" />
                   </div>
                 </div>
                 <div className="space-y-2">
@@ -1351,8 +1362,8 @@ export default function AcademicProPortfolio() {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-4 gap-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
                 <Code className="h-8 w-8 text-blue-400" />
